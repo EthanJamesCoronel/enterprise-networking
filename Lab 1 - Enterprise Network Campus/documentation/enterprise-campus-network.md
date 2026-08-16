@@ -9,7 +9,7 @@ The lab was built in the free version of Cisco Modeling Labs (CML) for the purpo
 
 ## Topology
 
-![[network_topology.png]]
+![network-topology.png](topology/network-topology.png)
 
 The lab topology consists of the following:
 
