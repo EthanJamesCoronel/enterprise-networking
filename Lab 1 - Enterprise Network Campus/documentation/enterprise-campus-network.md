@@ -37,6 +37,8 @@ The lab topology consists of the following:
 5. Open-standard protocols are used as much as possible for interoperability with non-Cisco network devices.
 
 
+
+
 #### Design Objectives
 
 #### Layer 2
