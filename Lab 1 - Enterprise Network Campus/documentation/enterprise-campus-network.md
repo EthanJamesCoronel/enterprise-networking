@@ -128,7 +128,7 @@ In addition, VTP was disabled on all switches because VLANs were intentionally m
 
 <details>
 	
-<summary>DIS1, DIS2, ACC1 and ACC2</summary>
+<summary>**DIS1, DIS2, ACC1 and ACC2**</summary>
 
 
 ```cisco
