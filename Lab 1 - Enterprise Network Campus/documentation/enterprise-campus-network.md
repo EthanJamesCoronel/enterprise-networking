@@ -128,7 +128,7 @@ In addition, VTP was disabled on all switches because VLANs were intentionally m
 
 <details>
 	
-<summary>**DIS1, DIS2, ACC1 and ACC2**</summary>
+<summary>DIS1, DIS2, ACC1 and ACC2</summary>
 
 
 ```cisco
@@ -873,9 +873,10 @@ Day-to-day management of the routers and switches is done remotely via Secure Sh
 
 Console access via the console line (`line console 0`) and SSH (`line vty 0 4`) was configured to automatically time out after ten (10) minutes of idle time to deprive any unauthorized user of the opportunity to make any changes or view sensitive information such as password hashes and neighbor adjacencies if the senior network administrator is away from their workstation. 
 
-```
-## ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1 and ASBR1
-
+<details>
+<summary>ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1 and ASBR1</summary>
+	
+```cisco
 ip domain name example.com
 
 crypto key generate rsa modulus 2048
@@ -897,6 +898,8 @@ line vty 0 4
  login local
  exec-timeout 10 0
 ```
+</details>
+
 
 #### Syslog
 
@@ -908,9 +911,10 @@ A 16 KB local Syslog buffer was configured on all routers and switches to retain
 
 Timestamps and sequence numbers were also enabled to improve event correlation, troubleshooting, and forensic analysis by providing accurate temporal information and unique identifiers for individual log messages.
 
-```
-# ACC1, ACC2, DIS1, DIS2
+<details>
+	<summary>ACC1, ACC2, DIS1 and DIS2</summary>
 
+```cisco
 service timestamps log datetime msec localtime show-timezone
 service sequence-numbers
 
@@ -920,10 +924,14 @@ logging trap informational
 logging buffered 16384 informational
 
 no logging console
+```
+</details>
 
 
-# R1, R2, ABR1, ASBR1
-
+<details>
+<summary>R1, R2, ABR1 and ASBR1</summary>
+	
+```cisco
 service timestamps log datetime msec localtime show-timezone
 service sequence-numbers
 
@@ -934,6 +942,8 @@ logging buffered 16384 informational
 
 no logging console
 ```
+</details>
+
 
 #### SNMP
 
@@ -945,9 +955,10 @@ SNMPv2c was selected because SNMPv3 is not supported by the IOL router and switc
 
 SNMP Traps were disabled since configuring an NMS is outside the scope of the lab. However, the feature was temporarily enabled to check whether SNMP Trap messages were being sent out.
 
-```
-## ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1, ASBR1
-
+<details>
+<summary>ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1 and ASBR1</summary>
+	
+```cisco
 ip access-list standard SNMP_MANAGERS
  permit 192.168.40.19 
  permit 192.168.40.20
@@ -958,6 +969,8 @@ snmp-server host 192.168.40.20 version 2c NMS-LAB-ENTERPRISE
 snmp-server location Enterprise Campus
 snmp-server contact Senior Network Administrator
 ```
+</details>
+
 
 #### CDP and LLDP
 
@@ -965,7 +978,11 @@ Link-Layer Discovery Protocol (LLDP) was enabled as the primary neighbor discove
 
 CDP and LLDP timers were left at their default values because neighbor discovery is not a convergence-critical function in this lab environment. The default advertisement and hold timers are sufficient for topology discovery and troubleshooting.
 
-```
+
+<details>
+<summary>ACC1 and ACC2</summary>
+
+```cisco
 ## ACC1, ACC2
 
 lldp run
@@ -974,13 +991,22 @@ interface range Ethernet1/0-3
  no cdp enable
  no lldp transmit
  no lldp receive
+```
+</details>
 
-## DIS1, DIS2, R1, R2, ABR1
+<details>
+<summary>DIS1, DIS2, R1, R2, ABR1</summary>
 
+```cisco
 lldp run
+```
+</details>
 
-## ASBR1
 
+<details>
+<summary>ASBR1</summary>
+	
+```
 lldp run
 
 interface Ethernet0/1
@@ -988,6 +1014,8 @@ interface Ethernet0/1
  no lldp transmit
  no lldp receive
 ```
+</details>
+
 
 ### Infrastructure Services
 
@@ -1003,9 +1031,10 @@ In modern enterprise networks, DHCP servers are centralized on Active Directory 
 
 **Note**: Because the enterprise campus network is IPv4-only, DHCPv6 configuration is outside the scope of this lab.
 
-```
-## R1
-
+<details>
+<summary>R1</summary>
+	
+```cisco
 ip dhcp excluded-address 192.168.10.1 192.168.10.10
 ip dhcp excluded-address 192.168.20.1 192.168.20.10
 ip dhcp excluded-address 192.168.30.1 192.168.30.10
@@ -1040,10 +1069,13 @@ ip dhcp pool VLAN_40_IT
  lease 0 12
 
 ip dhcp conflict logging
+```
+</details>
 
+<details>
+<summary>R2</summary>
 
-## R2
-
+```cisco
 no service dhcp
 
 interface Ethernet0/0.10
@@ -1055,6 +1087,8 @@ interface Ethernet0/0.30
 interface Ethernet0/0.40
  ip helper-address 192.168.254.3
 ```
+</details>
+
 
 #### NAT/PAT
 
@@ -1062,9 +1096,10 @@ interface Ethernet0/0.40
 
 An ACL was created to identify the internal subnets whose private IP addresses are to be translated to the public IP address of `203.0.113.2/24` and their respective port numbers. An entry was created for the printer subnet to permit outbound connectivity for critical functions such as firmware updates, certificate validation and time synchronization. In a production environment, outbound traffic from the printer VLAN would be typically restricted further by firewall policies to OEM-approved services only.
 
-```
-# ASBR1
+<details>
+<summary>ASBR1</summary>
 
+```cisco
 ip access-list standard NAT_HOSTS
  permit 192.168.10.0 0.0.0.255
  permit 192.168.20.0 0.0.0.255
@@ -1080,6 +1115,8 @@ interface Ethernet0/1
  
 ip nat inside source list NAT_HOSTS interface e0/1 overload
 ```
+</details>
+
 
 #### NTP
 
@@ -1091,9 +1128,11 @@ NTP Pool was selected because many production networks rely on it for synchroniz
 
 NTP authentication via HMAC-SHA-256 was also enabled to ensure the integrity of NTP messages. Incorrect or maliciously altered system time can cause failures in time-dependent security mechanisms, including certificate validation. 
 
-```
-## ASBR1
 
+<details>
+<summary>ASBR1</summary>
+	
+```cisco
 ip name-server 8.8.8.8
 ip name-server 1.1.1.1
 
@@ -1106,10 +1145,13 @@ ntp server 1.ph.pool.ntp.org
 ntp server 2.ph.pool.ntp.org
 
 ntp update-calendar
+```
+</details>
 
+<details>
+<summary>ABR1</summary>
 
-## ABR1
-
+```cisco
 ntp authenticate
 ntp authentication-key 1 hmac-sha2-256 LAB-NTP-AUTHENTICATION
 ntp trusted-key 1
@@ -1118,10 +1160,13 @@ ntp server 192.168.254.1 key 1
 ntp source Loopback0
 
 ntp update-calendar
+```
+</details>
 
-
-## R1, R2
-
+<details>
+<summary>R1 and R2</summary>
+	
+```cisco
 ntp authenticate
 ntp authentication-key 1 hmac-sha2-256 LAB-NTP-AUTHENTICATION
 ntp trusted-key 1
@@ -1131,10 +1176,13 @@ ntp server 192.168.254.1 key 1
 ntp source Loopback0
 
 ntp update-calendar
+```
+</details>
 
+<details>
+<summary>ACC1, ACC2, DIS1 and DIS2</summary>
 
-## ACC1, ACC2, DIS1, DIS2
-
+```cisco
 ntp authenticate
 ntp authentication-key 1 hmac-sha2-256 LAB-NTP-AUTHENTICATION
 ntp trusted-key 1
@@ -1145,6 +1193,7 @@ ntp source vlan 100
 
 ntp update-calendar
 ```
+</details>
 
 
 ---
@@ -1152,16 +1201,16 @@ ntp update-calendar
 
 #### Layer 2 Security
 
-##### *Port Security*
+##### Port Security
 
 Port Security was enabled on all access ports of `ACC1` and `ACC2` as a lightweight edge security measure.
 
 Port Security was configured differently on the `Ethernet1/3` interface of `ACC2` because the VMware ESXi host connected to it would have multiple VMs. Each VM has its own virtual network interface card (vNIC), with its own MAC address. To accommodate multiple VMs, the maximum MAC addresses allowed was increased to eight (8), and sticky MAC address learning was disabled due to the administrative overhead of managing learned MAC addresses across multiple VMs, some of which might be set up temporarily.
 
+<details>
+<summary>ACC1 and ACC2</summary>
 
-```
-## ACC1, ACC2
-
+```cisco
 interface range Ethernet1/0-3
  switchport port-security
  switchport port-security maximum 2
@@ -1170,23 +1219,31 @@ interface range Ethernet1/0-3
 
 errdisable recovery cause psecure-violation
 errdisable recovery interval 300
+```
+</details>
 
-# ACC2
-
+<details>
+<summary>ACC2</summary>
+	
+```cisco
 interface Ethernet1/3
  switchport port-security maximum 8
  no switchport port-security mac-address sticky
 ```
+</details>
 
-##### *DHCP Snooping*
+
+##### DHCP Snooping
 
 DHCP Snooping was enabled on `ACC1` and `ACC2` to prevent rogue DHCP servers and DHCP starvation attacks. All uplink interfaces were configured as trusted interfaces while keeping all host-facing ports untrusted. Only DHCP traffic from hosts in the departmental VLANs would be inspected.
 
 Additionally, DHCP rate-limiting was implemented to mitigate DHCP starvation attacks, in which an attacker attempts to exhaust the pool of available addresses by generating large numbers of bogus DHCP requests. In this lab, each host-facing access port was rate-limited to only fifteen (15) packets per second to thwart DHCP message floods. DHCP Snooping also provides the binding database required by Dynamic ARP Inspection (DAI).
 
-```
-## ACC1, ACC2
 
+<details>
+	<summary>ACC1 and ACC2</summary>
+
+```cisco
 ip dhcp snooping
 ip dhcp snooping vlan 10,20,30,40
 no ip dhcp snooping information option
@@ -1199,19 +1256,9 @@ interface range Ethernet1/0-3
 
 errdisable recovery cause dhcp-rate-limit
 errdisable recovery interval 300
-
-
-DIS1
-
-ip dhcp snooping
-ip dhcp snooping vlan 10,20,30,40
-no ip dhcp snooping information option
-
-interface range Port-channel1-2
- ip dhcp snooping trust
-interface range Ethernet1/0-1
- ip dhcp snooping trust
 ```
+</details>
+
 
 ##### *Dynamic ARP Inspection (DAI)*
 
@@ -1219,9 +1266,10 @@ Dynamic ARP Inspection (DAI) was configured to validate source and destination M
 
 In addition, just like in DHCP Snooping, all host-facing untrusted interfaces were rate-limited to just fifteen (15) ARP packets per second to accommodate normal host behavior while restricting abnormally high rates of ARP traffic generated by malicious end-user devices. An ARP ACL was created for static hosts in the network. For simplicity, only four devices in the IT Department (VLAN 40) were added.
 
-```
-## ACC1, ACC2
+<details>
+<summary>ACC1 and ACC2</summary>
 
+```cisco
 ip arp inspection vlan 10,20,30,40,50,100
 ip arp inspection validate src-mac dst-mac ip
 ip arp inspection filter STATIC_HOSTS vlan 40
@@ -1249,23 +1297,25 @@ arp access-list STATIC_HOSTS
  remark SMB SERVER
  permit ip host 192.168.40.21 mac host 0050.56b3.4021
 ```
+</details>
 
-##### *BPDU Guard*
+
+##### BPDU Guard
 
 BPDU Guard was enabled alongside PortFast on all ports by default but disabled on trunk ports manually. Without it, a rogue switch plugged into the network may inadvertently trigger a root bridge election, possibly causing that switch to become a suboptimal root bridge.
 
-##### *Automatic Err-Disable Recovery*
+##### Automatic Err-Disable Recovery
 
 Automatic err-disable recovery was enabled for Dynamic ARP Inspection events, DHCP Snooping rate-limiting events, and BPDU Guard violations with a recovery interval of three hundred (300) seconds. This allows ports disabled by anomalous ARP and DHCP packet floods to recover automatically while maintaining protection against ARP, DHCP and STP attacks.
 
-##### *Unsupported Features*
+##### Unsupported Features
 
 It is worth mentioning that IP Source Guard (IPSG), Storm Control and MACsec were considered as Layer 2 security features in this lab as they are configured in most high-security production networks. However, since CML-Free was used, the IOL L2 switch image does not support these features. 
 
 
 #### Layer 3 Security
 
-##### *Access Control Lists (ACLs)*
+##### Access Control Lists (ACLs)
 
 ACLs were configured in multiple areas of the network for traffic filtering, infrastructure protection, management access control, and feature-specific operations such as NAT/PAT and DAI. The ACLs discussed in this subsection focus on security-related traffic filtering operations.
   
@@ -1275,9 +1325,10 @@ Hosts from all departmental VLANs were granted access to an SMB server in the IT
 
 Likewise, certain IPv4 address spaces such as the RFC 1918 and APIPA addresses should never originate from the Internet. Packets arriving from the Internet bearing source addresses belonging to these address spaces, commonly known as *bogons*, were filtered using an inbound ACL that contains a non-exhaustive list of bogon spaces and applied to the WAN-facing interface of `ASBR1`. This protects the enterprise network from IP spoofing attacks.
 
-```
-## R1, R2
+<details>
+<summary>R1 and R2</summary>
 
+```cisco
 ip access-list extended VLAN_10_INBOUND  
  remark Allow access to SMB server at IT Department; deny access to all other IT hosts and management plane  
  permit tcp 192.168.10.0 0.0.0.255 host 192.168.40.21 eq 445 
@@ -1326,10 +1377,15 @@ interface Ethernet0/0.20
  ip access-group VLAN_20_INBOUND in  
 interface Ethernet0/0.30  
  ip access-group VLAN_30_INBOUND in
+```
+</details>
 
 
-## ASBR1
+<details>
+<summary>ASBR1</summary>
 
+
+```cisco
 ip access-list extended BLOCK_BOGON_TRAFFIC
  remark Block bogon traffic originating from Internet
  deny ip 0.0.0.0 0.255.255.255 any log
@@ -1344,8 +1400,10 @@ ip access-list extended BLOCK_BOGON_TRAFFIC
 interface Ethernet0/1
  ip access-group BLOCK_BOGON_TRAFFIC in
 ```
+</details>
 
-##### *Device Hardening*
+
+##### Device Hardening
 
 Device hardening involves disabling unused services and components as they enlarge the attack surface of the network device being secured. This adheres to the *principle of least functionality*, which holds that only services essential to the intended function and configuration of the network device shall remain enabled.
 
@@ -1353,27 +1411,36 @@ Cisco routers and switches have a few services and components that are enabled b
 
 1. **Disable HTTP and HTTPS servers**. The HTTP and HTTPS servers in the routers and switches were disabled because web-based management is not required in this environment. Network administrators are assumed to manage such devices exclusively through SSH. Cisco IOS and IOS XE web management interfaces have historically been associated with several high-severity vulnerabilities, with some leading to device compromise and remote code execution.
 
-```
-# ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1, ASBR1
 
+<details>
+<summary>ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1 and ASBR1</summary>
+
+```cisco
 no ip http server
 no ip http secure-server
 ```
+</details>
 
 2. **Disable AUX port.** The AUX port was historically used to access a device's console over a modem line. While Plain Old Telephone Service (POTS) lines are now considered obsolete in most modern production networks, the AUX port nevertheless represents a high-risk attack vector in case malicious actors have physical access to the devices. `no exec` prevents the device from spawning a CLI shell on the AUX line.
 
-```
-# ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1, ASBR1
+<details>
+<summary>ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1 and ASBR1</summary>
 
+
+```cisco
 line aux 0
  no exec
  transport input none
 ```
+</details>
 
 3. **Disable Telnet**. In this lab scenario, SSH is exclusively used for remote device management. Because Telnet does not ship with built-in encryption, the service was disabled in favor of its encrypted counterpart. This was configured earlier on all network devices in the Line Security subsection.
 
-```
+<details>
+<summary>ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1 and ASBR1</summary>
+
+```cisco
 line vty 0 4
  transport input ssh
 ```
-
+</details>
