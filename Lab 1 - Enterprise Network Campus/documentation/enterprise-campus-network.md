@@ -215,7 +215,9 @@ ip default-gateway 192.168.100.1
 </details>
 
 <details>
-	<summary>ACC2</summary>
+
+<summary>ACC2</summary>
+
 ```cisco
 ## ACC2
 
@@ -273,12 +275,13 @@ interface vlan 100
  ip address 192.168.100.7 255.255.255.0
  no shutdown
 ip default-gateway 192.168.100.1
-```</details>
-
-
 ```
-## DIS1
+</details>
 
+<details>
+	<summary>DIS1</summary>
+	
+```cisco
 interface range Ethernet0/0-1
  description Link to ACC1
  channel-group 1 mode active
@@ -323,9 +326,13 @@ interface vlan 100
  no shutdown
 ip default-gateway 192.168.100.1
 ```
-```
-## DIS2
+	
+</details>
 
+<details>
+	<summary>DIS2</summary>
+	
+```cisco
 interface range Ethernet0/0-1
  description Link to ACC2
  channel-group 1 mode active
@@ -352,8 +359,10 @@ interface vlan100
  no shutdown
 ip default-gateway 192.168.100.1
 ```
+</details>
 
 
+```
 ```
 ##### MSTP
 
