@@ -167,9 +167,10 @@ EtherChannel was implemented using the Link Aggregation Control Protocol (LACP) 
 LACP was selected over the Port Aggregation Protocol (PAgP) because it is an IEEE standard and supports interoperability between Cisco switches and non-Cisco switches. Although this lab uses Cisco devices exclusively, the use of LACP reflects enterprise network environments where multi-vendor network infrastructures may be present.
 
 <details>
-```
-## ACC1
+	
+<summary>ACC1</summary>
 
+```cisco
 spanning-tree portfast default
 spanning-tree portfast bpduguard default
 
@@ -210,9 +211,10 @@ interface vlan 100
  no shutdown
 ip default-gateway 192.168.100.1
 ```
-
 </details>
 
+
+```
 ```
 ## ACC2
 
