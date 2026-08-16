@@ -131,7 +131,6 @@ In addition, VTP was disabled on all switches because VLANs were intentionally m
 <summary>DIS1, DIS2, ACC1 and ACC2</summary>
 
 ```cisco
-
 vlan 10
  name FINANCE
 vlan 20
@@ -151,6 +150,8 @@ vtp mode off
 ```
 </details>
 
+
+
 ##### Interfaces and EtherChannel Configuration
 
 Access ports were configured on `ACC1` and `ACC2` to connect end-user hosts such as workstations, laptops and printers to the network. PortFast and BPDU Guard were enabled globally so that all interfaces operating as access ports are protected by default. 
@@ -165,7 +166,7 @@ EtherChannel was implemented using the Link Aggregation Control Protocol (LACP) 
 
 LACP was selected over the Port Aggregation Protocol (PAgP) because it is an IEEE standard and supports interoperability between Cisco switches and non-Cisco switches. Although this lab uses Cisco devices exclusively, the use of LACP reflects enterprise network environments where multi-vendor network infrastructures may be present.
 
-
+<details>
 ```
 ## ACC1
 
@@ -208,8 +209,11 @@ interface vlan 100
  ip address 192.168.100.6 255.255.255.0
  no shutdown
 ip default-gateway 192.168.100.1
+```
 
+</details>
 
+```
 ## ACC2
 
 spanning-tree portfast default
@@ -266,7 +270,9 @@ interface vlan 100
  ip address 192.168.100.7 255.255.255.0
  no shutdown
 ip default-gateway 192.168.100.1
+```
 
+```
 ## DIS1
 
 interface range Ethernet0/0-1
@@ -312,8 +318,8 @@ interface vlan 100
  ip address 192.168.100.4 255.255.255.0
  no shutdown
 ip default-gateway 192.168.100.1
-
-
+```
+```
 ## DIS2
 
 interface range Ethernet0/0-1
@@ -343,6 +349,8 @@ interface vlan100
 ip default-gateway 192.168.100.1
 ```
 
+
+```
 ##### MSTP
 
 Although only four departmental VLANs were configured in this lab, the Multiple Spanning Tree Protocol (MSTP) was chosen to simulate the design of a larger enterprise campus network. MSTP enables multiple VLANs to be mapped to a single Spanning Tree instance, improving scalability in network environments with tens, hundreds or even thousands of VLANs.
