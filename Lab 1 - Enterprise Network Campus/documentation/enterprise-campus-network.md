@@ -130,6 +130,7 @@ In addition, VTP was disabled on all switches because VLANs were intentionally m
 	
 <summary>DIS1, DIS2, ACC1 and ACC2</summary>
 
+
 ```cisco
 vlan 10
  name FINANCE
@@ -213,9 +214,9 @@ ip default-gateway 192.168.100.1
 ```
 </details>
 
-
-```
-```
+<details>
+	<summary>ACC2</summary>
+```cisco
 ## ACC2
 
 spanning-tree portfast default
@@ -272,7 +273,8 @@ interface vlan 100
  ip address 192.168.100.7 255.255.255.0
  no shutdown
 ip default-gateway 192.168.100.1
-```
+```</details>
+
 
 ```
 ## DIS1
