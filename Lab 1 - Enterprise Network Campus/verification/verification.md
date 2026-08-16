@@ -1,4 +1,4 @@
-
+﻿
 #### Layer 2 Design
 
 ##### VLAN Configuration
@@ -595,3 +595,4 @@ The `show running-config | section line aux` output on `ACC1` and `R1` confirms 
 The `show running-config | section line vty` output on `ACC1` and `R1` confirms that only SSH was running as the CLI-based remote device management protocol. SSH 2.0 was configured as shown in the output of `show ip ssh` in the Line Security subsection of the Management Plane section above.
 
 ![[r1_vty_telnet_disabled.png]]
+
