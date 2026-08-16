@@ -207,7 +207,7 @@ interface range Ethernet1/2-3
  switchport mode access
  switchport access vlan 20
 
-interface vlan 100
+interface Vlan100
  ip address 192.168.100.6 255.255.255.0
  no shutdown
 ip default-gateway 192.168.100.1
@@ -269,7 +269,7 @@ interface Ethernet1/3
  spanning-tree portfast trunk
  switchport nonegotiate
 
-interface vlan 100
+interface Vlan100
  ip address 192.168.100.7 255.255.255.0
  no shutdown
 ip default-gateway 192.168.100.1
@@ -319,7 +319,7 @@ interface range Ethernet1/2-3
  switchport access vlan 2063
  shutdown
 
-interface vlan 100
+interface Vlan100
  ip address 192.168.100.4 255.255.255.0
  no shutdown
 ip default-gateway 192.168.100.1
@@ -353,7 +353,7 @@ interface range Port-channel1-2
  switchport native vlan 2151
  switchport nonegotiate
  
-interface vlan100
+interface Vlan100
  ip address 192.168.100.5 255.255.255.0
  no shutdown
 ip default-gateway 192.168.100.1
@@ -426,9 +426,10 @@ Operationally relevant interface descriptions were configured to simplify manage
 
 Point-to-point links between routers will use the `192.168.255.0/24` address space but be configured with `/31` IPv4 addresses for the purpose of IPv4 address conservation.
 
-```
-## R1
-
+<details>
+<summary>R1</summary>
+	
+```cisco
 interface range Ethernet0/0-2
  no shutdown
 
@@ -445,10 +446,13 @@ interface Ethernet0/3
 
 interface Loopback0
  ip address 192.168.254.3 255.255.255.255
+```
+</details>
 
- 
-## R2 
-
+<details>
+<summary>R2</summary>
+	
+```cisco
 interface range Ethernet0/0-2
  no shutdown
 
@@ -465,8 +469,16 @@ interface Ethernet0/3
 
 interface Loopback0
  ip address 192.168.254.4 255.255.255.255
+```
+</details>
 
- 
+
+
+
+<details>
+<summary>ABR1</summary>
+	
+```cisco
 ## ABR1
 
 interface range Ethernet0/0-2
@@ -486,8 +498,14 @@ interface Ethernet0/2
 
 interface Loopback0
  ip address 192.168.254.2 255.255.255.255
+```
+</details>
 
- 
+
+<details>
+<summary>ASBR1</summary>
+
+```cisco
 ## ASBR1
 
 interface range Ethernet0/0-1
@@ -507,6 +525,8 @@ interface range Ethernet0/2-3
 interface Loopback0
  ip address 192.168.254.1 255.255.255.255
 ```
+</details>
+
 
 ##### VRRP
 
@@ -514,9 +534,11 @@ Virtual Router Redundancy Protocol (VRRP) was configured on `R1` and `R2` to pro
 
 **Note**: Because the IOL images of CML-Free only support legacy plaintext authentication for VRRP, it was not configured on both routers as it provides negligible security benefits.
 
-```
-## R1 
 
+<details>
+<summary>R1</summary>
+
+```cisco
 interface Ethernet0/0.10
  description Link to VLAN 10 (Finance)
  encapsulation dot1q 10
@@ -570,10 +592,14 @@ interface Ethernet0/0.100
  vrrp 100 priority 90
  vrrp 100 preempt
  vrrp 100 timers advertise 250
- 
- 
-## R2
+```
+</details>
 
+
+<details>
+<summary>R2</summary>
+
+```cisco
 interface Ethernet0/0.10
  description Link to VLAN 10 (Finance)
  encapsulation dot1q 10
@@ -628,6 +654,8 @@ interface Ethernet0/0.100
  vrrp 100 preempt
  vrrp 100 timers advertise 250
 ```
+</details>
+
 
 ##### OSPF
 
@@ -651,7 +679,11 @@ Additional features and optimizations were implemented to ensure high availabili
 
 4. **Optimization**. The network type of all OSPF-enabled interfaces was changed to `point-to-point` to eliminate Type 2 LSA overhead, conserving processing resources and bandwidth. Because Ethernet uses the `broadcast` network type, DR/BDR elections would take place even in physical point-to-point links, causing Type 2 LSAs to be flooded out of active interfaces unnecessarily. Changing the network type to `point-to-point` suppresses DR/BDR elections on Ethernet links.
 
-```
+
+<details>
+<summary>R1</summary>
+	
+```cisco
 ## R1 
 
 key chain OSPF_AREA1_AUTH
@@ -688,10 +720,14 @@ interface range Ethernet0/1-2
  
 interface Loopback0
  ip ospf 1 area 1
+```
+</details>
 
 
-## R2
+<details>
+<summary>R2</summary>
 
+```cisco
 key chain OSPF_AREA1_AUTH
  key 1
   key-string LAB-OSPF-AREA1-PASSWORD
@@ -726,8 +762,13 @@ interface range Ethernet0/1-2
 
 interface Loopback0
  ip ospf 1 area 1
- 
- 
+```
+</details>
+
+<details>
+<summary>ABR1</summary>
+
+```cisco
 ## ABR1
 
 key chain OSPF_AREA0_AUTH
@@ -763,10 +804,13 @@ interface Ethernet0/2
 
 interface Loopback0
  ip ospf 1 area 0
+```
+</details>
 
+<details>
+<summary>ASBR1</summary>
 
-## ASBR1
-
+```cisco
 key chain OSPF_AREA0_AUTH
  key 1
   key-string LAB-OSPF-AREA0-PASSWORD
@@ -791,6 +835,7 @@ interface Ethernet0/0
 interface Loopback0
  ip ospf 1 area 0
 ```
+</details>
 
 
 ---
@@ -811,11 +856,15 @@ The password configured below was a relatively short, non-complex string with on
   
 Cisco IOS stores passwords in plaintext if the `password` keyword is used. When the `secret` keyword is used to set passwords instead, they will be encrypted depending on the IOS version and platform. The IOL images in CML-Free default to Type 9 authentication, which implements the cryptographically robust scrypt algorithm.
 
-```
-## ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1 and ASBR1
 
+<details>
+<summary>ACC1, ACC2, DIS1, DIS2, R1, R2, ABR1 and ASBR1</summary>
+	
+```cisco
 username admin privilege 15 secret LAB-ADMIN-PASSWORD
 ```
+</details>
+
 
 ##### Line Security
 
