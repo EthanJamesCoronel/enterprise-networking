@@ -140,8 +140,6 @@ The `show ip ospf neighbor` output also confirms that the network type of the OS
 
 The RID assignments are as follows: `1.1.1.1` for `R1`, `2.2.2.2` for `R2`, `3.3.3.3` for `ABR1`, and `4.4.4.4` for `ASBR1`.
 
-Note: At this stage, no default route was injected into the OSPF domain because the static default route on `ASBR1` is configured with object tracking (`track 1`). IP SLA and object tracking will be configured in the IP SLA subsection. Consequently, the static default route was not installed in the routing table of `ASBR1` and therefore not propagated via Type 5 LSAs.
-
 ![[r1_ospf_neighbors.png]]
 
 ![[r2_ospf_neighbors.png]]
