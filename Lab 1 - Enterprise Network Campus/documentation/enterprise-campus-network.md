@@ -219,8 +219,6 @@ ip default-gateway 192.168.100.1
 <summary>ACC2</summary>
 
 ```cisco
-## ACC2
-
 spanning-tree portfast default
 spanning-tree portfast bpduguard default
 
@@ -330,7 +328,8 @@ ip default-gateway 192.168.100.1
 </details>
 
 <details>
-	<summary>DIS2</summary>
+
+<summary>DIS2</summary>
 	
 ```cisco
 interface range Ethernet0/0-1
@@ -362,9 +361,7 @@ ip default-gateway 192.168.100.1
 </details>
 
 
-```
-```
-##### MSTP
+##### MSTP Configuration
 
 Although only four departmental VLANs were configured in this lab, the Multiple Spanning Tree Protocol (MSTP) was chosen to simulate the design of a larger enterprise campus network. MSTP enables multiple VLANs to be mapped to a single Spanning Tree instance, improving scalability in network environments with tens, hundreds or even thousands of VLANs.
 
@@ -372,9 +369,10 @@ In contrast, RPVST+ maintains a separate Spanning Tree instance for each VLAN, w
 
 Although the scalability benefits are negligible in this scenario, the lab demonstrates VLAN-to-instance mapping and traffic engineering by assigning different root bridges to separate MST instances.
 
-```
-## DIS1
-
+<details>
+<summary>DIS1</summary>
+	
+```cisco
 spanning-tree mode mst
 spanning-tree mst 1 priority 4096
 spanning-tree mst 2 priority 8192
@@ -384,10 +382,13 @@ spanning-tree mst configuration
  revision 1
  instance 1 vlan 10,20,50
  instance 2 vlan 30,40,100
+```
+</details>
 
- 
-## DIS2
-
+<details>
+<summary>DIS2</summary>
+	
+```cisco
 spanning-tree mode mst
 spanning-tree mst 1 priority 8192
 spanning-tree mst 2 priority 4096
@@ -397,10 +398,13 @@ spanning-tree mst configuration
  revision 1
  instance 1 vlan 10,20,50
  instance 2 vlan 30,40,100
+```
+</details>
 
+<details>
+<summary>ACC1 and ACC2</summary>
 
-## ACC1 and ACC2
-
+```cisco
 spanning-tree mode mst
 
 spanning-tree mst configuration
@@ -408,9 +412,9 @@ spanning-tree mst configuration
  revision 1
  instance 1 vlan 10,20,50
  instance 2 vlan 30,40,100
-
-
 ```
+</details>
+
 
 ---
 #### Layer 3 Design
