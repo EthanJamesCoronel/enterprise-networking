@@ -39,7 +39,7 @@ The lab topology consists of the following:
 
 ##### Design Objectives
 
-**Layer 2**
+##### Layer 2
 
 - Configure VLAN segmentation.
 
@@ -47,7 +47,7 @@ The lab topology consists of the following:
 
 - Aggregate redundant uplinks using EtherChannel.
 
-**Layer 3**
+##### Layer 3
 
 - Configure inter-VLAN routing.
 
@@ -57,13 +57,13 @@ The lab topology consists of the following:
 
 - Enable Internet connectivity using NAT/PAT.
 
-**Network Security**
+##### Network Security
 
 - Secure the Layer 2 and Layer 3 infrastructure.
 
 - Harden network devices.
 
-**Management Plane**
+##### Management Plane
 
 - Configure secure local device authentication.
 
@@ -77,7 +77,7 @@ The lab topology consists of the following:
 
 - Simplify neighbor discovery and troubleshooting with CDP and LLDP.
 
-**Infrastructure Services**
+##### Infrastructure Services
 
 - Facilitate automatic network configuration in end hosts using DHCP.
 
@@ -100,6 +100,7 @@ The lab topology consists of the following:
 `/32` router loopback addresses were also assigned the `192.168.254.0/24` subnet.
 
 
+
 #### Technologies Used
 
 - **Layer 2**: VLANs, MSTP, EtherChannel (LACP)
@@ -111,6 +112,7 @@ The lab topology consists of the following:
 - **Network Security**: DHCP Snooping, DAI, ACLs, HMAC Authentication
 
 - **Infrastructure Services**: DHCP, NAT/PAT, NTP
+
 
 
 #### Layer 2 Design
