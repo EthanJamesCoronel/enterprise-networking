@@ -9,7 +9,7 @@ The lab was built in the free version of Cisco Modeling Labs (CML) for the purpo
 
 ## Topology
 
-![network-topology.png](CCNP-ENCOR-Labs/Lab 1 - Enterprise Network Campus/topology/network-topology.png)
+![network-topology.png](CCNP-ENCOR-Labs/Lab%201%20-%20Enterprise%20Network%20Campus/topology/network-topology.png)
 
 The lab topology consists of the following:
 
