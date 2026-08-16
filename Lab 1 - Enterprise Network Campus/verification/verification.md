@@ -15,7 +15,7 @@ The `show vlan brief` output on `ACC1` confirms that all required VLANs were suc
 
 **Note**: All switches have identical VLAN databases. The VLAN database of `ACC1` represents the other switches'. Likewise, all ports have not been assigned to their respective VLAN/s yet.
 
-![acc1_vlan_database.png]
+![acc1_vlan_database.png](screenshots/1%20-%20Layer%202%20Design/acc1_vlan_database.png)
 
 ##### Switchports and EtherChannel
 
