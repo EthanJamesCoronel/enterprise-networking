@@ -126,7 +126,10 @@ All unused switchports were placed in VLAN 2063 (Unused Ports) and administrativ
 
 In addition, VTP was disabled on all switches because VLANs were intentionally managed locally on each switch, eliminating the risk of unintended VLAN database modifications caused by VTP advertisements while reducing the switch's attack surface.
 
-```
+<details>
+<summary>DIS1, DIS2, ACC1, ACC2</summary>
+
+```cisco
 # DIS1, DIS2, ACC1, ACC2
 
 vlan 10
@@ -146,7 +149,7 @@ vlan 2063
 
 vtp mode off
 ```
-
+</details>
 
 ##### Interfaces and EtherChannel Configuration
 
