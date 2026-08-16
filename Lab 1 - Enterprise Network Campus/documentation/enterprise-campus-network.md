@@ -415,7 +415,6 @@ spanning-tree mst configuration
 </details>
 
 
----
 ## Layer 3 Design
 
 
@@ -837,7 +836,6 @@ interface Loopback0
 </details>
 
 
----
 ## Management Plane
 
 
@@ -1196,7 +1194,6 @@ ntp update-calendar
 </details>
 
 
----
 ## Network Security
 
 ### Layer 2 Security
