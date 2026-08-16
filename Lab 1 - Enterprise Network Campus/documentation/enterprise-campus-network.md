@@ -1,13 +1,13 @@
 
 
-#### Overview
+## Overview
 
 This lab simulates a simplified enterprise campus network consisting of two routers, two distribution-layer switches, and two access-layer switches with multiple VLANs for various departments. The objective was to create a Layer 2 and Layer 3 network architecture that implements robust network security and high availability.
 
-The lab was built in Cisco Modeling Labs (CML) for the purpose of gaining hands-on experience with campus network design, network security and troubleshooting.
+The lab was built in the free version of Cisco Modeling Labs (CML) for the purpose of gaining hands-on experience with campus network design, network security and troubleshooting.
 
 
-#### Topology
+## Topology
 
 ![[network_topology.png]]
 
@@ -39,9 +39,9 @@ The lab topology consists of the following:
 
 
 
-#### Design Objectives
+## Design Objectives
 
-#### Layer 2
+### Layer 2
 
 - Configure VLAN segmentation.
 
@@ -49,7 +49,7 @@ The lab topology consists of the following:
 
 - Aggregate redundant uplinks using EtherChannel.
 
-#### Layer 3
+### Layer 3
 
 - Configure inter-VLAN routing.
 
@@ -59,13 +59,13 @@ The lab topology consists of the following:
 
 - Enable Internet connectivity using NAT/PAT.
 
-#### Network Security
+### Network Security
 
 - Secure the Layer 2 and Layer 3 infrastructure.
 
 - Harden network devices.
 
-#### Management Plane
+### Management Plane
 
 - Configure secure local device authentication.
 
@@ -79,14 +79,14 @@ The lab topology consists of the following:
 
 - Simplify neighbor discovery and troubleshooting with CDP and LLDP.
 
-#### Infrastructure Services
+### Infrastructure Services
 
 - Facilitate automatic network configuration in end hosts using DHCP.
 
 - Enable automatic time synchronization using NTP.
 
 
-### VLAN and IP Addressing Plan
+## VLAN and IP Addressing Plan
 
 | VLAN | Department   | Subnet             | Default Gateway |
 | ---- | ------------ | ------------------ | --------------- |
@@ -103,7 +103,7 @@ The lab topology consists of the following:
 
 
 
-### Technologies Used
+## Technologies Used
 
 - **Layer 2**: VLANs, MSTP, EtherChannel (LACP)
 
@@ -117,10 +117,10 @@ The lab topology consists of the following:
 
 
 
-### Layer 2 Design
+## Layer 2 Design
 
 
-#### VLAN Configuration
+### VLAN Configuration
 
 Six VLANs were created to logically segment the enterprise campus into four departments: VLAN 10 (Finance), VLAN 20 (Marketing), VLAN 30 (HR) and VLAN 40 (IT). VLAN 50 was created as a dedicated printer VLAN as a security best practice to isolate network printers from user workstations, limiting opportunities for lateral movement in the event that a printer is compromised. VLAN 100 (Management) was also created to provide dedicated VLANs for printers and remote device management.  Each VLAN was assigned a descriptive name that corresponds to its associated department or function. 
 
@@ -129,6 +129,8 @@ All unused switchports were placed in VLAN 2063 (Unused Ports) and administrativ
 In addition, VTP was disabled on all switches because VLANs were intentionally managed locally on each switch, eliminating the risk of unintended VLAN database modifications caused by VTP advertisements while reducing the switch's attack surface.
 
 <details>
+
+<summary><strong>Device Configuration</strong></summary>
 	
 <summary>DIS1, DIS2, ACC1 and ACC2</summary>
 
@@ -154,7 +156,7 @@ vtp mode off
 </details>
 
 
-#### Interfaces and EtherChannel Configuration
+### Interfaces and EtherChannel Configuration
 
 Access ports were configured on `ACC1` and `ACC2` to connect end-user hosts such as workstations, laptops and printers to the network. PortFast and BPDU Guard were enabled globally so that all interfaces operating as access ports are protected by default. 
 
@@ -362,7 +364,7 @@ ip default-gateway 192.168.100.1
 </details>
 
 
-#### MSTP Configuration
+### MSTP Configuration
 
 Although only four departmental VLANs were configured in this lab, the Multiple Spanning Tree Protocol (MSTP) was chosen to simulate the design of a larger enterprise campus network. MSTP enables multiple VLANs to be mapped to a single Spanning Tree instance, improving scalability in network environments with tens, hundreds or even thousands of VLANs.
 
