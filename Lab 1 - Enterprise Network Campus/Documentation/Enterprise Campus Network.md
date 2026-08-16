@@ -382,17 +382,8 @@ spanning-tree mst configuration
  revision 1
  instance 1 vlan 10,20,50
  instance 2 vlan 30,40,100
- 
----
-VERIFICATION
 
-# View MSTIs
 
-show spanning-tree mst
-
-# View MST configuration
-
-show spanning-tree mst configuration
 ```
 
 ---
