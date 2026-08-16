@@ -96,6 +96,7 @@ The lab topology consists of the following:
 | 100  | Management   | `192.168.100.0/24` | `192.168.100.1` |
 | 2063 | Unused Ports | -                  | -               |
 | 2151 | Native VLAN  | -                  | -               |
+
 `/32` router loopback addresses were also assigned the `192.168.254.0/24` subnet.
 
 
