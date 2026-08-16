@@ -1,13 +1,13 @@
 
 
-##### Overview
+#### Overview
 
 This lab simulates a simplified enterprise campus network consisting of two routers, two distribution-layer switches, and two access-layer switches with multiple VLANs for various departments. The objective was to create a Layer 2 and Layer 3 network architecture that implements robust network security and high availability.
 
 The lab was built in Cisco Modeling Labs (CML) for the purpose of gaining hands-on experience with campus network design, network security and troubleshooting.
 
 
-##### Topology
+#### Topology
 
 ![[network_topology.png]]
 
@@ -24,7 +24,7 @@ The lab topology consists of the following:
 5. One autonomous system border router (ASBR) providing Internet connectivity (`ASBR1`)
 
 
-##### Assumptions
+#### Assumptions
 
 1. The enterprise campus network consists of four departments: Finance, Marketing, HR and IT.
 
@@ -37,9 +37,9 @@ The lab topology consists of the following:
 5. Open-standard protocols are used as much as possible for interoperability with non-Cisco network devices.
 
 
-##### Design Objectives
+#### Design Objectives
 
-##### Layer 2
+#### Layer 2
 
 - Configure VLAN segmentation.
 
@@ -47,7 +47,7 @@ The lab topology consists of the following:
 
 - Aggregate redundant uplinks using EtherChannel.
 
-##### Layer 3
+#### Layer 3
 
 - Configure inter-VLAN routing.
 
@@ -57,13 +57,13 @@ The lab topology consists of the following:
 
 - Enable Internet connectivity using NAT/PAT.
 
-##### Network Security
+#### Network Security
 
 - Secure the Layer 2 and Layer 3 infrastructure.
 
 - Harden network devices.
 
-##### Management Plane
+#### Management Plane
 
 - Configure secure local device authentication.
 
@@ -77,14 +77,14 @@ The lab topology consists of the following:
 
 - Simplify neighbor discovery and troubleshooting with CDP and LLDP.
 
-##### Infrastructure Services
+#### Infrastructure Services
 
 - Facilitate automatic network configuration in end hosts using DHCP.
 
 - Enable automatic time synchronization using NTP.
 
 
-#### VLAN and IP Addressing Plan
+### VLAN and IP Addressing Plan
 
 | VLAN | Department   | Subnet             | Default Gateway |
 | ---- | ------------ | ------------------ | --------------- |
@@ -101,7 +101,7 @@ The lab topology consists of the following:
 
 
 
-#### Technologies Used
+### Technologies Used
 
 - **Layer 2**: VLANs, MSTP, EtherChannel (LACP)
 
@@ -115,10 +115,10 @@ The lab topology consists of the following:
 
 
 
-#### Layer 2 Design
+### Layer 2 Design
 
 
-##### VLAN Configuration
+#### VLAN Configuration
 
 Six VLANs were created to logically segment the enterprise campus into four departments: VLAN 10 (Finance), VLAN 20 (Marketing), VLAN 30 (HR) and VLAN 40 (IT). VLAN 50 was created as a dedicated printer VLAN as a security best practice to isolate network printers from user workstations, limiting opportunities for lateral movement in the event that a printer is compromised. VLAN 100 (Management) was also created to provide dedicated VLANs for printers and remote device management.  Each VLAN was assigned a descriptive name that corresponds to its associated department or function. 
 
@@ -152,8 +152,7 @@ vtp mode off
 </details>
 
 
-
-##### Interfaces and EtherChannel Configuration
+#### Interfaces and EtherChannel Configuration
 
 Access ports were configured on `ACC1` and `ACC2` to connect end-user hosts such as workstations, laptops and printers to the network. PortFast and BPDU Guard were enabled globally so that all interfaces operating as access ports are protected by default. 
 
@@ -361,7 +360,7 @@ ip default-gateway 192.168.100.1
 </details>
 
 
-##### MSTP Configuration
+#### MSTP Configuration
 
 Although only four departmental VLANs were configured in this lab, the Multiple Spanning Tree Protocol (MSTP) was chosen to simulate the design of a larger enterprise campus network. MSTP enables multiple VLANs to be mapped to a single Spanning Tree instance, improving scalability in network environments with tens, hundreds or even thousands of VLANs.
 
@@ -417,10 +416,10 @@ spanning-tree mst configuration
 
 
 ---
-#### Layer 3 Design
+### Layer 3 Design
 
 
-##### Interface Configuration
+#### Interface Configuration
 
 Operationally relevant interface descriptions were configured to simplify management and troubleshooting by clearly identifying the purpose of each interface. All unused router interfaces were left administratively disabled for security purposes.
 
@@ -528,7 +527,7 @@ interface Loopback0
 </details>
 
 
-##### VRRP
+#### VRRP
 
 Virtual Router Redundancy Protocol (VRRP) was configured on `R1` and `R2` to provide default gateway redundancy and load sharing for all VLANs. `R1` operates as the active router for VLANs 10, 30 and 50, while `R2` operates as the active router for VLANs 20, 40 and 100. This distributes default gateway traffic across both routers under normal operating conditions. Object tracking via IP SLA was considered but could not be implemented because of feature limitations in the IOL images of CML-Free. VRRP advertisement timers were also decreased from the default value of one (1) second to two hundred fifty (250) milliseconds to speed up gateway failover.
 
@@ -657,7 +656,7 @@ interface Ethernet0/0.100
 </details>
 
 
-##### OSPF
+#### OSPF
 
 Open Shortest Path First (OSPF) was configured on all routers to facilitate dynamic routing. 
 
@@ -839,10 +838,10 @@ interface Loopback0
 
 
 ---
-#### Management Plane
+### Management Plane
 
 
-##### Management Interface Configuration
+#### Management Interface Configuration
 
 VLAN 100 was created for the remote management of network devices. The `192.168.100.0/24` subnet was reserved for Layer 2 management IP addresses. SVIs were configured on all switches.
 
@@ -866,7 +865,7 @@ username admin privilege 15 secret LAB-ADMIN-PASSWORD
 </details>
 
 
-##### Line Security
+#### Line Security
 
 The console line for each router and switch was secured by prompting users to authenticate using locally stored credentials.  
 
@@ -899,7 +898,7 @@ line vty 0 4
  exec-timeout 10 0
 ```
 
-##### Syslog
+#### Syslog
 
 All network devices in the enterprise campus network were configured to send Syslog messages with severity levels 0 through 6 (emergencies through informational) to a remote Syslog server. 
 
@@ -936,7 +935,7 @@ logging buffered 16384 informational
 no logging console
 ```
 
-##### SNMP
+#### SNMP
 
 Simple Network Management Protocol (SNMP) was configured to enable network and system administrators to monitor device performance and status remotely and respond to any issues or anomalies promptly when they receive alerts in the Network Management System (NMS).
 
@@ -960,7 +959,7 @@ snmp-server location Enterprise Campus
 snmp-server contact Senior Network Administrator
 ```
 
-##### CDP and LLDP
+#### CDP and LLDP
 
 Link-Layer Discovery Protocol (LLDP) was enabled as the primary neighbor discovery protocol to support interoperability with non-Cisco devices. Cisco Discovery Protocol (CDP) was retained only on trusted internal infrastructure links for operational visibility of Cisco devices. Both protocols were disabled on user-facing access ports of `ACC1` and `ACC2` and on the WAN-facing interface of `ASBR1` to eliminate the exposure of device information to untrusted devices and external networks.
 
@@ -990,9 +989,9 @@ interface Ethernet0/1
  no lldp receive
 ```
 
-#### Infrastructure Services
+### Infrastructure Services
 
-##### DHCP
+#### DHCP
 
 Dynamic Host Configuration Protocol (DHCP) was configured to facilitate automatic provisioning of network information for hosts such as the IP address, subnet mask, default gateway address, DNS server addresses, enterprise domain name, and more.
 
@@ -1057,7 +1056,7 @@ interface Ethernet0/0.40
  ip helper-address 192.168.254.3
 ```
 
-##### NAT/PAT
+#### NAT/PAT
 
 `ASBR1` serves as the edge router of the enterprise network, being directly connected to an ISP router. As such, it was configured to perform Port Address Translation (PAT) to provide Internet connectivity to all internal hosts. 
 
@@ -1082,7 +1081,7 @@ interface Ethernet0/1
 ip nat inside source list NAT_HOSTS interface e0/1 overload
 ```
 
-##### NTP
+#### NTP
 
 Network Time Protocol (NTP) was configured on all routers and switches to enable them to synchronize their clocks with that of upper-strata NTP servers. 
   
@@ -1149,11 +1148,11 @@ ntp update-calendar
 
 
 ---
-#### Network Security
+### Network Security
 
-##### Layer 2 Security
+#### Layer 2 Security
 
-###### *Port Security*
+##### *Port Security*
 
 Port Security was enabled on all access ports of `ACC1` and `ACC2` as a lightweight edge security measure.
 
@@ -1179,7 +1178,7 @@ interface Ethernet1/3
  no switchport port-security mac-address sticky
 ```
 
-###### *DHCP Snooping*
+##### *DHCP Snooping*
 
 DHCP Snooping was enabled on `ACC1` and `ACC2` to prevent rogue DHCP servers and DHCP starvation attacks. All uplink interfaces were configured as trusted interfaces while keeping all host-facing ports untrusted. Only DHCP traffic from hosts in the departmental VLANs would be inspected.
 
@@ -1214,7 +1213,7 @@ interface range Ethernet1/0-1
  ip dhcp snooping trust
 ```
 
-###### *Dynamic ARP Inspection (DAI)*
+##### *Dynamic ARP Inspection (DAI)*
 
 Dynamic ARP Inspection (DAI) was configured to validate source and destination MAC addresses and IP-to-MAC mappings on `ACC1` and `ACC2` in VLANs 10, 20, 30, 40, 50 and 100 to prevent ARP cache poisoning attacks. Without DAI, an attacker can send Gratuitous ARP (GARP) messages or ARP replies using a spoofed IP address. This could cause traffic bound for a legitimate device to be redirected through the attacker’s machine, enabling a man-in-the-middle attack.
 
@@ -1251,22 +1250,22 @@ arp access-list STATIC_HOSTS
  permit ip host 192.168.40.21 mac host 0050.56b3.4021
 ```
 
-###### *BPDU Guard*
+##### *BPDU Guard*
 
 BPDU Guard was enabled alongside PortFast on all ports by default but disabled on trunk ports manually. Without it, a rogue switch plugged into the network may inadvertently trigger a root bridge election, possibly causing that switch to become a suboptimal root bridge.
 
-###### *Automatic Err-Disable Recovery*
+##### *Automatic Err-Disable Recovery*
 
 Automatic err-disable recovery was enabled for Dynamic ARP Inspection events, DHCP Snooping rate-limiting events, and BPDU Guard violations with a recovery interval of three hundred (300) seconds. This allows ports disabled by anomalous ARP and DHCP packet floods to recover automatically while maintaining protection against ARP, DHCP and STP attacks.
 
-###### *Unsupported Features*
+##### *Unsupported Features*
 
 It is worth mentioning that IP Source Guard (IPSG), Storm Control and MACsec were considered as Layer 2 security features in this lab as they are configured in most high-security production networks. However, since CML-Free was used, the IOL L2 switch image does not support these features. 
 
 
-##### Layer 3 Security
+#### Layer 3 Security
 
-###### *Access Control Lists (ACLs)*
+##### *Access Control Lists (ACLs)*
 
 ACLs were configured in multiple areas of the network for traffic filtering, infrastructure protection, management access control, and feature-specific operations such as NAT/PAT and DAI. The ACLs discussed in this subsection focus on security-related traffic filtering operations.
   
@@ -1346,7 +1345,7 @@ interface Ethernet0/1
  ip access-group BLOCK_BOGON_TRAFFIC in
 ```
 
-###### *Device Hardening*
+##### *Device Hardening*
 
 Device hardening involves disabling unused services and components as they enlarge the attack surface of the network device being secured. This adheres to the *principle of least functionality*, which holds that only services essential to the intended function and configuration of the network device shall remain enabled.
 
