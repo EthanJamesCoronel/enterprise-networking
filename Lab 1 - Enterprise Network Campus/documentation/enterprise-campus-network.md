@@ -1310,7 +1310,7 @@ Automatic err-disable recovery was enabled for Dynamic ARP Inspection events, DH
 It is worth mentioning that IP Source Guard (IPSG), Storm Control and MACsec were considered as Layer 2 security features in this lab as they are configured in most high-security production networks. However, since CML-Free was used, the IOL L2 switch image does not support these features. 
 
 
-### Layer 3 Security
+## Layer 3 Security
 
 ### Access Control Lists (ACLs)
 
