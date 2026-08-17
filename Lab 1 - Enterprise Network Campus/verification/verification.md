@@ -1,15 +1,15 @@
 ﻿
-#### Layer 2 Design
+## Layer 2 Design
 
-##### VLAN Configuration
+### VLAN Configuration
 
-###### Command
+#### Command
 
 ```
 show vlan brief
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show vlan brief` output on `ACC1` confirms that all required VLANs were successfully created on `ACC1`. These include the four departmental VLANs (Finance, Marketing, HR and IT), the dedicated Printer VLAN, the Management VLAN, the Native VLAN, and the VLAN assigned to unused switchports.
 
@@ -17,9 +17,9 @@ The `show vlan brief` output on `ACC1` confirms that all required VLANs were suc
 
 ![acc1_vlan_database.png](screenshots/1%20-%20Layer%202%20Design/acc1_vlan_database.png)
 
-##### Switchports and EtherChannel
+### Switchports and EtherChannel
 
-###### Command
+#### Command
 
 ```
 show interfaces status
@@ -28,7 +28,7 @@ show etherchannel summary
 show ip interface brief
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show interface status` output on `ACC2` confirms that its `Ethernet1/0-3` interfaces were configured as access ports and were now assigned to their respective departmental VLANs. The `Ethernet1/3` interface was configured as a PortFast Trunk port to accommodate a VMware ESXi host with VMs for the NMS, the Syslog server, and the HP JetAdvantage server. The `Ethernet1/1` interface was also placed in the Unused Ports VLAN and administratively shut down as a device hardening measure.
 
@@ -47,9 +47,9 @@ In addition, the `show ip interface brief` output confirms that the management S
 ![acc2_management_svi.png](screenshots/1%20-%20Layer%202%20Design/acc2_management_svi.png)
 
 
-##### MSTP
+### MSTP
 
-###### Commands
+#### Commands
 
 ```
 # DIS1 and DIS2
@@ -58,7 +58,7 @@ show spanning-tree mst configuration
 show spanning-tree mst
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The outputs confirm that `DIS1` serves as the root bridge for MSTI1, and `DIS2` for MSTI2. MSTI1 was also mapped to VLANs 10, 30 and 50, and MSTI2 to VLANs 20, 40 and 100. All other VLANs were mapped to the default MST instance (MSTI0).
 
@@ -72,19 +72,19 @@ The outputs confirm that `DIS1` serves as the root bridge for MSTI1, and `DIS2` 
 ![dis2_mst_instances.png](screenshots/1%20-%20Layer%202%20Design/dis2_mst_instances.png)
 
 ---
-#### Layer 3 Design
+## Layer 3 Design
 
-##### Interfaces Configuration
+### Interfaces Configuration
 
-###### Commands
+#### Commands
 
 ```
-R1, R2, ABR1, ASBR1
+# R1, R2, ABR1, ASBR1
 
 show ip interface brief
 ```
 
-###### Description
+#### Description
 
 The outputs of `show ip interface brief` confirm that the IP address assignment for each physical interface of `R1`, `R2`, `ABR1` and `ASBR1` was successfully applied.
 
@@ -99,15 +99,15 @@ The outputs of `show ip interface brief` confirm that the IP address assignment 
 ![asbr1_interface_status.png](screenshots/2%20-%20Layer%203%20Design/Interfaces/asbr1_interface_status.png)
 
 
-##### VRRP
+### VRRP
 
-###### Commands
+#### Commands
 
 ```
 show vrrp brief
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The outputs of `show vrrp brief` confirm that `R1` serves as Master for VLANs 10, 30 and 50, and `R2` serves as Master for VLANs 20, 40 and 100. The other router assumes the Backup role for each VRRP, providing first-hop redundancy.
 
@@ -116,9 +116,9 @@ The outputs of `show vrrp brief` confirm that `R1` serves as Master for VLANs 10
 ![r2_vrrp_status.png](screenshots/2%20-%20Layer%203%20Design/VRRP/r2_vrrp_status.png)
 
 
-##### OSPF
+### OSPF
 
-###### Commands
+#### Commands
 
 ```
 # R1, R2, ABR1, ASBR1
@@ -132,7 +132,7 @@ show ip ospf database
 show ip route ospf
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The outputs for `show ip ospf neighbor`, `show ip ospf database` and `show ip route ospf` confirm that OSPF neighbor adjacencies were established successfully, and that routes to the departmental VLANs, the printer VLAN and the management VLAN were propagated across the OSPF domain. 
 
@@ -158,17 +158,17 @@ The RID assignments are as follows: `1.1.1.1` for `R1`, `2.2.2.2` for `R2`, `3.3
 ![abr1_ospf_routes.png](screenshots/2%20-%20Layer%203%20Design/OSPF/abr1_ospf_routes.png)
 
 ---
-#### Management Plane
+## Management Plane
 
-##### User Account Creation
+### User Account Creation
 
-###### Commands
+#### Commands
 
 ```
 show running-config | section username
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The outputs for `show running-config | section username` in `R1` and `R2` confirm that the username and password were successfully configured, that the password hash was stored using Type 9 authentication (`secret 9`), and that the network administrator was granted Level 15 privileges, enabling full control over the network devices.
 
@@ -178,9 +178,9 @@ The outputs for `show running-config | section username` in `R1` and `R2` confir
 
 ![r2_user_creation.png](screenshots/3%20-%20Management%20Plane/Line%20Security/r2_user_creation.png)
 
-##### Line Security
+### Line Security
 
-###### Commands
+#### Commands
 
 ```
 show running-config | section line
@@ -188,7 +188,7 @@ show running-config | section line
 show ip ssh
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The output for `show running-config | section line` on `R1` confirms that line security was successfully configured on the console and VTY lines, and that Telnet was disabled, leaving only SSH for remote device management. 
 
@@ -203,9 +203,9 @@ Upon saving the line security configuration to the startup configuration, a user
 ![r1_console_auth_prompt.png](screenshots/3%20-%20Management%20Plane/Line%20Security/r1_console_auth_prompt.png)
 
 
-##### Syslog
+### Syslog
 
-###### Commands
+#### Commands
 
 ```
 show running-config | include logging
@@ -213,7 +213,7 @@ show running-config | include logging
 show logging last 5
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show running-config | include logging` output on `R1` confirms the successful application of the Syslog configuration on `R1`. The Syslog configuration is uniform across all network devices.
 
@@ -226,9 +226,9 @@ The `show logging last 5` output displays the five most recent Syslog messages s
 **Note**: Screenshots on the Syslog server itself are not included because setting up a Syslog server is beyond the scope of this lab.
 
 
-##### SNMP
+### SNMP
 
-###### Commands
+#### Commands
 
 ```
 show running-config | section snmp
@@ -236,7 +236,7 @@ show running-config | section snmp
 show snmp
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show running-config | section snmp` output on `ACC1` confirms that SNMPv2c was configured successfully. 
 
@@ -248,9 +248,9 @@ The `show snmp` output on `ACC1` confirms that the SNMPv2c was operational when 
 
 **Note**: The configuration and the output of this command are uniform across all network devices.
 
-##### CDP and LLDP
+### CDP and LLDP
 
-###### Commands
+#### Commands
 
 ```
 # ABR1
@@ -267,7 +267,7 @@ show running-config | exclude switchport|ip dhcp
 show running-config | exclude ip 
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show lldp neighbors` output on `ABR1` confirm that LLDP was successfully configured, and that its neighbors could be discovered. Even though CDP is already enabled by default on all Cisco network devices, the `show cdp neighbors` output was entered for good measure to display its list of neighbors.
 
@@ -282,11 +282,11 @@ The outputs of `show running-config | exclude switchport|ip dhcp` on `ACC1` and 
 ![asbr1_interface_cdp_lldp_disabled.png](screenshots/3%20-%20Management%20Plane/CDP%20and%20LLDP/asbr1_interface_cdp_lldp_disabled.png)
 
 ---
-#### Infrastructure Services
+## Infrastructure Services
 
-##### DHCP
+### DHCP
 
-###### Commands
+#### Commands
 
 ```
 # R1
@@ -302,7 +302,7 @@ ip route show default
 show running-config | include dhcp
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show running-config | section dhcp` output on `R1` confirms that the exempted IPv4 address ranges and DHCP pools for the departmental VLANs were successfully created.
 
@@ -318,9 +318,9 @@ On the other hand, the `show running-config | include dhcp` output on `R2` also 
 
 ![r2_dhcp_config.png](screenshots/4%20-%20Infrastructure%20Services/DHCP/r2_dhcp_config.png)
 
-##### NAT/PAT
+### NAT/PAT
 
-###### Commands
+#### Commands
 
 ```
 # ASBR1
@@ -332,7 +332,7 @@ show running-config | include ip nat inside source
 show ip nat translations
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show running-config | section interface` and `show running-config | include ip nat inside source` outputs on `ASBR1` confirm that the NAT/PAT configurations were successfully applied.
 
@@ -345,9 +345,9 @@ The `show ip nat translations` output on `ASBR1` confirms that the ICMP Echo pac
 ![asbr1_nat_translations.png](screenshots/4%20-%20Infrastructure%20Services/PAT/asbr1_nat_translations.png)
 
 
-##### NTP
+### NTP
 
-###### Commands
+#### Commands
 
 ```
 show running-config | section ntp
@@ -357,7 +357,7 @@ show ntp status
 show ntp associations
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show running-config | include ntp` output confirms the successful configuration of NTP on `ASBR1`. Three public Philippine-based NTP Pool servers were specified as the NTP servers with which `ASBR1` would synchronize its time.
 
@@ -380,11 +380,11 @@ The `show ntp associations` and `show ntp status` outputs on `DIS1` confirm that
 ![dis1_ntp_status.png](screenshots/4%20-%20Infrastructure%20Services/NTP/dis1_ntp_status.png)
 
 ---
-#### Network Security
+## Network Security
 
-##### Port Security
+### Port Security
 
-###### Commands
+#### Commands
 
 ```
 # ACC1
@@ -398,7 +398,7 @@ show port-security interface Ethernet1/0
 show running-config | section interface Ethernet1/3
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show running-config | section interface Ethernet1` output on `ACC1` confirms that the Port Security configurations were successfully applied to the user-facing interfaces. 
 
@@ -416,9 +416,9 @@ On `ACC2`, the `show running-config | section interface Ethernet1/3` output conf
 
 ![acc2_port_security_interface.png](screenshots/5%20-%20Network%20Security/Port%20Security/acc2_port_security_interface.png)
 
-##### DHCP Snooping
+### DHCP Snooping
 
-###### Commands
+#### Commands
 
 ```
 # ACC1
@@ -428,7 +428,7 @@ show ip dhcp snooping
 show ip dhcp binding
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show running-config | include dhcp snooping` output on `ACC1` confirms that the successful configuration of DHCP Snooping.
 
@@ -439,9 +439,9 @@ The `show ip dhcp binding` output on `R1` confirms DHCP leases to `FINANCE-1` an
 ![r1_dhcp_leases.png](screenshots/5%20-%20Network%20Security/DHCP%20Snooping/r1_dhcp_leases.png)
 
 
-##### Dynamic ARP Inspection (DAI)
+### Dynamic ARP Inspection (DAI)
 
-###### Commands
+#### Commands
 
 ```
 # ACC1
@@ -453,7 +453,7 @@ show ip arp inspection interfaces
 show arp access-list
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The partial `show ip arp inspection` output on `ACC1` confirms the successful configuration of DAI. The ARP ACL, which contains IP-to-MAC bindings for static hosts, was also successfully applied to VLAN 40. The remainder of the command's output was omitted due to IOL platform limitations causing the DHCP Snooping binding table, on which DAI relies to validate ARP traffic, to remain empty despite successful DHCP leases as mentioned in the previous subsection.
 
@@ -468,9 +468,9 @@ The `show arp access-list` output confirms the successful configuration of IP-to
 ![acc1_arp_acl_hosts.png](screenshots/5%20-%20Network%20Security/DAI/acc1_arp_acl_hosts.png)
 
 
-##### BPDU Guard
+### BPDU Guard
 
-###### Commands
+#### Commands
 
 ```
 # ACC1
@@ -478,16 +478,16 @@ The `show arp access-list` output confirms the successful configuration of IP-to
 show spanning-tree summary
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show spanning-tree summary` output on `ACC1` confirms that BPDU Guard was enabled globally by default. PortFast and BPDU Guard were automatically disabled upon configuration of the member interfaces of the LACP trunks.
 
 ![acc1_bpdu_guard_config.png](screenshots/5%20-%20Network%20Security/BPDU%20Guard/acc1_bpdu_guard_config.png)
 
 
-##### Automatic Err-Disable Recovery
+### Automatic Err-Disable Recovery
 
-###### Commands
+#### Commands
 
 ```
 # ACC1
@@ -495,24 +495,25 @@ The `show spanning-tree summary` output on `ACC1` confirms that BPDU Guard was e
 show errdisable recovery
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show errdisable recovery` on `ACC1` confirms that automatic err-disable recovery was enabled for DAI, DHCP rate-limit and Port Security violations, with a recovery interval of three hundred (300) seconds.
 
 ![acc1_errdisable_recovery_config.png](screenshots/5%20-%20Network%20Security/ACLs/acc1_errdisable_recovery_config.png)
 
 
-##### Access Control Lists (ACLs)
+### Access Control Lists (ACLs)
 
-###### Commands
+#### Commands
 
 ```
+# R1
 show ip access-lists
 
 show running-config | section Ethernet0/0.
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 The `show ip access-lists` output on `R1` confirms that the ACLs were successfully configured. The entries disallow each departmental VLAN from accessing hosts on the IT Department (`192.168.40.0/24`), the management VLAN (`192.168.100.0/24`) and the loopback address subnet (`192.168.254.0/24`), as well as other departments. The departmental VLANs were permitted to access an SMB server (`192.168.40.21:445`) residing in the IT Department. The same ACLs were also configured on `R2`.
 
@@ -549,27 +550,19 @@ The hit counter for the `deny 0.0.0.0 0.255.255.255` entry incremented instead.
 **Note**: Due to the five-active node limit of CML-Free, verification of the accessibility of the SMB server in the IT Department from VLANs 10, 20 and 30 was deliberately omitted even though it was included in the network topology diagram.
 
 
-##### Device Hardening
+### Device Hardening
 
-###### Commands
+#### Commands
 
 ```
 show running-config | include http
 
 show running-config | section line aux
 
-show running-config | section interface Ethernet0/0.
-
-
-
-
-show running-config | include ip http
-
-show running-config | exclude switchport|ip dhcp
-
+show running-config | section line vty
 ```
 
-###### Description and Screenshots
+#### Description and Screenshots
 
 
 ***Disable HTTP and HTTPS servers***
