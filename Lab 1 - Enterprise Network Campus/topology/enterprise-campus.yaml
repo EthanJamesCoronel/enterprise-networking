@@ -1,0 +1,1037 @@
+annotations:
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: 192.168.255.2/31
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -179.28684494100452
+    y1: -198.92850861438865
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: 192.168.255.0/31
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -180.05394989598472
+    y1: -438.32883750866796
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.0'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -293.3007312617233
+    y1: -493.3752675357684
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.2'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -289.63433098827926
+    y1: -159.87497397412704
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.1'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -39.48297253337391
+    y1: -363.9662404699784
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.3'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -40.0
+    y1: -291.2069882285888
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: 192.168.255.4/31
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -302.0500648355129
+    y1: -318.57660468612556
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.4'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -305.9647752279044
+    y1: -450.87544363445346
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.5'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -310.3965504848428
+    y1: -194.8308217495217
+    z_index: 2
+  - border_color: '#808080FF'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: 0.0
+    y1: -560.0
+    x2: 480.0
+    y2: 480.0
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: Area 0 (Backbone Area)
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 12.003100485427396
+    y1: -544.2639795792962
+    z_index: 4
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: Area 1 (Regular Area)
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -1108.726259230508
+    y1: -542.547481538984
+    z_index: 4
+  - border_color: '#808080FF'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: -1120.0
+    y1: -560.0
+    x2: 1120.0
+    y2: 480.0
+    z_index: 0
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: 192.168.255.6/31
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 191.4280689151091
+    y1: -358.92850861438865
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.6'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 29.28508614388638
+    y1: -349.28508614388636
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.7'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 434.6636486373609
+    y1: -350.0017587971181
+    z_index: 2
+  - border_color: '#808080FF'
+    border_radius: 0
+    border_style: ''
+    color: '#FFFFFF00'
+    rotation: 0
+    thickness: 1
+    type: rectangle
+    x1: 840.0
+    y1: -560.0
+    x2: 320.0
+    y2: 480.0
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: 203.0.113.0/31
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 611.4897585960118
+    y1: -357.44672031199735
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.1'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 510.63521091990856
+    y1: -351.0676664281136
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.1'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 793.1967812801566
+    y1: -349.3668617481528
+    z_index: 2
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: ISP
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 853.7329225182474
+    y1: -538.7332553673316
+    z_index: 4
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: 203.0.113.0/31
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 960.0
+    y1: -360.0
+    z_index: 1
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: '.3'
+    text_font: monospace
+    text_italic: false
+    text_size: 9
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: 868.2352941176471
+    y1: -348.235294117647
+    z_index: 2
+smart_annotations: []
+nodes:
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n0
+    image_definition: null
+    label: ACC1
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: -880
+    y: -480
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: Ethernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: Ethernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: Ethernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: Ethernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n1
+    image_definition: null
+    label: ACC2
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: -880
+    y: -160
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: Ethernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: Ethernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: Ethernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: Ethernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n2
+    image_definition: null
+    label: DIS1
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: -600
+    y: -480
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: Ethernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: Ethernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: Ethernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: Ethernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n3
+    image_definition: null
+    label: DIS2
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: -600
+    y: -160
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: Ethernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: Ethernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: Ethernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: Ethernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n4
+    image_definition: null
+    label: R1
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: -320
+    y: -480
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n5
+    image_definition: null
+    label: R2
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: -320
+    y: -160
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n6
+    image_definition: null
+    label: ASBR1
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: 480
+    y: -320
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n7
+    image_definition: null
+    label: ISPR
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: 840
+    y: -320
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n8
+    image_definition: null
+    label: FINANCE-1
+    node_definition: desktop
+    parameters: {}
+    ram: null
+    tags: []
+    x: -1040
+    y: -480
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n9
+    image_definition: null
+    label: MARKETING-1
+    node_definition: desktop
+    parameters: {}
+    ram: null
+    tags: []
+    x: -1040
+    y: -400
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n10
+    image_definition: null
+    label: HR-1
+    node_definition: desktop
+    parameters: {}
+    ram: null
+    tags: []
+    x: -1040
+    y: -240
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n11
+    image_definition: null
+    label: ABR1
+    node_definition: iol-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: 0
+    y: -320
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n12
+    image_definition: null
+    label: INTERNET
+    node_definition: external_connector
+    parameters: {}
+    ram: null
+    tags: []
+    x: 1160
+    y: -320
+    interfaces:
+      - id: i0
+        label: port
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n13
+    image_definition: null
+    label: IT-1
+    node_definition: desktop
+    parameters: {}
+    ram: null
+    tags: []
+    x: -1040
+    y: -160
+    interfaces:
+      - id: i0
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+links:
+  - id: l0
+    n1: n4
+    n2: n5
+    i1: i3
+    i2: i3
+    conditioning: {}
+    label: R1-Ethernet0/2<->R2-Ethernet0/2
+  - id: l1
+    n1: n2
+    n2: n1
+    i1: i4
+    i2: i4
+    conditioning: {}
+    label: DIS1-Ethernet0/3<->ACC2-Ethernet0/3
+  - id: l2
+    n1: n2
+    n2: n4
+    i1: i5
+    i2: i1
+    conditioning: {}
+    label: DIS1-Ethernet1/0<->R1-Ethernet0/0
+  - id: l3
+    n1: n3
+    n2: n5
+    i1: i5
+    i2: i1
+    conditioning: {}
+    label: DIS2-Ethernet1/0<->R2-Ethernet0/0
+  - id: l4
+    n1: n2
+    n2: n3
+    i1: i6
+    i2: i6
+    conditioning: {}
+    label: DIS1-Ethernet1/1<->DIS2-Ethernet1/1
+  - id: l5
+    n1: n0
+    n2: n2
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: ACC1-Ethernet0/0<->DIS1-Ethernet0/0
+  - id: l6
+    n1: n0
+    n2: n2
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: ACC1-Ethernet0/1<->DIS1-Ethernet0/1
+  - id: l7
+    n1: n2
+    n2: n1
+    i1: i3
+    i2: i3
+    conditioning: {}
+    label: DIS1-Ethernet0/2<->ACC2-Ethernet0/2
+  - id: l8
+    n1: n1
+    n2: n3
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: ACC2-Ethernet0/0<->DIS2-Ethernet0/0
+  - id: l9
+    n1: n1
+    n2: n3
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: ACC2-Ethernet0/1<->DIS2-Ethernet0/1
+  - id: l10
+    n1: n3
+    n2: n0
+    i1: i3
+    i2: i3
+    conditioning: {}
+    label: DIS2-Ethernet0/2<->ACC1-Ethernet0/2
+  - id: l11
+    n1: n3
+    n2: n0
+    i1: i4
+    i2: i4
+    conditioning: {}
+    label: DIS2-Ethernet0/3<->ACC1-Ethernet0/3
+  - id: l12
+    n1: n8
+    n2: n0
+    i1: i0
+    i2: i5
+    conditioning: {}
+    label: desktop-0-eth0<->ACC1-Ethernet1/0
+  - id: l13
+    n1: n0
+    n2: n9
+    i1: i7
+    i2: i0
+    conditioning: {}
+    label: ACC1-Ethernet1/2<->MKTG-1-eth0
+  - id: l14
+    n1: n1
+    n2: n10
+    i1: i5
+    i2: i0
+    conditioning: {}
+    label: ACC2-Ethernet1/0<->desktop-0-eth0
+  - id: l15
+    n1: n11
+    n2: n4
+    i1: i1
+    i2: i2
+    conditioning: {}
+    label: ABR1-Ethernet0/0<->R1-Ethernet0/1
+  - id: l16
+    n1: n11
+    n2: n5
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: ABR1-Ethernet0/1<->R2-Ethernet0/1
+  - id: l17
+    n1: n11
+    n2: n6
+    i1: i3
+    i2: i1
+    conditioning: {}
+    label: ABR1-Ethernet0/2<->ASBR1-Ethernet0/0
+  - id: l18
+    n1: n6
+    n2: n7
+    i1: i2
+    i2: i1
+    conditioning: {}
+    label: ASBR1-Ethernet0/1<->ISPR-Ethernet0/0
+  - id: l19
+    n1: n7
+    n2: n12
+    i1: i2
+    i2: i0
+    conditioning: {}
+    label: ISPR-Ethernet0/1<->INTERNET-port
+  - id: l20
+    n1: n13
+    n2: n1
+    i1: i0
+    i2: i6
+    conditioning: {}
+    label: IT-1-eth0<->ACC2-Ethernet1/1
+lab:
+  description: ''
+  notes: ''
+  title: LAB-1-ENTERPRISE-CAMPUS-NETWORK
+  version: 0.3.0
