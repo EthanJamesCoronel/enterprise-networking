@@ -71,7 +71,7 @@ The outputs confirm that `DIS1` serves as the root bridge for MSTI1, and `DIS2` 
 
 ![dis2_mst_instances.png](screenshots/1%20-%20Layer%202%20Design/dis2_mst_instances.png)
 
----
+
 ## Layer 3 Design
 
 ### Interfaces Configuration
@@ -157,7 +157,7 @@ The RID assignments are as follows: `1.1.1.1` for `R1`, `2.2.2.2` for `R2`, `3.3
 
 ![abr1_ospf_routes.png](screenshots/2%20-%20Layer%203%20Design/OSPF/abr1_ospf_routes.png)
 
----
+
 ## Management Plane
 
 ### User Account Creation
@@ -281,7 +281,7 @@ The outputs of `show running-config | exclude switchport|ip dhcp` on `ACC1` and 
 
 ![asbr1_interface_cdp_lldp_disabled.png](screenshots/3%20-%20Management%20Plane/CDP%20and%20LLDP/asbr1_interface_cdp_lldp_disabled.png)
 
----
+
 ## Infrastructure Services
 
 ### DHCP
@@ -379,7 +379,7 @@ The `show ntp associations` and `show ntp status` outputs on `DIS1` confirm that
 
 ![dis1_ntp_status.png](screenshots/4%20-%20Infrastructure%20Services/NTP/dis1_ntp_status.png)
 
----
+
 ## Network Security
 
 ### Port Security
