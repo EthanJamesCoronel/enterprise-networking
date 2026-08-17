@@ -360,7 +360,7 @@ ip default-gateway 192.168.100.1
 </details>
 
 
-### MSTP Configuration
+### MSTP
 
 Although only four departmental VLANs were configured in this lab, the Multiple Spanning Tree Protocol (MSTP) was chosen to simulate the design of a larger enterprise campus network. MSTP enables multiple VLANs to be mapped to a single Spanning Tree instance, improving scalability in network environments with tens, hundreds or even thousands of VLANs.
 
@@ -845,7 +845,7 @@ VLAN 100 was created for the remote management of network devices. The `192.168.
 
 Loopback addresses, which were assigned the `192.168.254.0/24` subnet, were configured on all routers to ensure that they are reachable by other services without relying on the availability of physical interfaces.
 
-##### User Account Creation
+### User Account Creation
 
 One senior network administrator manages the enterprise campus network. An administrative account conferred with Level 15 privileges was created to facilitate local device authentication for management purposes.
 
