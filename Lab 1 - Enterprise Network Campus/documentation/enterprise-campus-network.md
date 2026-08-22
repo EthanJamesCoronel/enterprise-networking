@@ -19,7 +19,7 @@ The lab topology consists of the following:
 
 3. Two routers providing first-hop redundancy (`R1` and `R2`)
 
-4. One area border routers (ABR) implementing a multi-area OSPF domain (`ABR1`)
+4. One area border router (ABR) implementing a multi-area OSPF domain (`ABR1`)
 
 5. One autonomous system border router (ASBR) providing Internet connectivity (`ASBR1`)
 
